@@ -6,9 +6,11 @@ import "./style/style.scss";
 
 const marvelService = new MarvelService();
 
-marvelService
-	.getAllCharacters()
-	.then((res) => res.data.results.forEach((item) => console.log(item.name)));
+marvelService.getAllCharacters().then((res) => console.log(res));
+
+// marvelService
+//   .getAllCharacters()
+//   .then((res) => res.data.results.forEach((item) => console.log(item.name)));
 
 const container = document.getElementById("root");
 const root = createRoot(container);
