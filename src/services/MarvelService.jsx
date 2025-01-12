@@ -7,6 +7,8 @@ class MarvelService {
   _publicKey = "09f4bbc1578fd314c23453247423742f";
   _privateKey = "869893b5876b37169290858bdddf33b7b3961e1d";
 
+  // https://gateway.marvel.com:443/v1/public/characters?limit=9&offset=210&apikey=09f4bbc1578fd314c23453247423742f
+
   _generateHash = () => {
     const ts = new Date().getTime();
     const hash = MD5(ts + this._privateKey + this._publicKey).toString();
@@ -31,6 +33,7 @@ class MarvelService {
   };
 
   getCharacter = (id) => {
+    const { ts, hash } = this._generateHash();
     return this.getResource(
       `${this._apiBase}characters/${id}?ts=${ts}&apikey=${this._publicKey}&hash=${hash}`
     );
