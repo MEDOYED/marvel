@@ -1,6 +1,7 @@
 import { Component } from "react";
 
 import MarvelService from "../../services/MarvelService";
+import Spinner from "../spinner/spinner";
 
 import mjolnir from "../../resources/img/mjolnir.png";
 
@@ -46,6 +47,7 @@ class RandomChar extends Component {
 
     return (
       <div className="randomchar">
+        <Spinner />
         <div className="randomchar__block">
           <img src={thumbnail} alt="Random character" className="randomchar__img" />
           <div className="randomchar__info">
