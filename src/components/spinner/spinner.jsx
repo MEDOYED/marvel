@@ -9,7 +9,9 @@ const Spinner = () => {
       style={{
         shapeRendering: "auto",
         display: "block",
-        background: "rgb(255, 255, 255)",
+        // background: "rgb(255, 255, 255)",
+        background: "none",
+        margin: "0 auto",
       }}
       xmlnsXlink="http://www.w3.org/1999/xlink">
       <g>
