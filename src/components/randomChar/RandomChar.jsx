@@ -24,6 +24,12 @@ class RandomChar extends Component {
   marvelService = new MarvelService();
 
   onCharLoaded = (char) => {
+    if (!char.description) {
+      char.description = "There is no description for this character";
+    } else if (char.description.length > 100) {
+      char.description = char.description.slice(0, 100) + "...";
+    }
+
     this.setState({ char });
     // this.setState({ char: char });  те саме що вище строчка
   };
@@ -31,13 +37,13 @@ class RandomChar extends Component {
   updateChar = () => {
     const id = Math.floor(Math.random() * (1011400 - 1011000) + 1011000);
     this.marvelService.getCharacter(id).then(this.onCharLoaded);
-    // this.marvelService.getAllCharacters().then((res) => console.log(res));
   };
 
   render() {
     const {
       char: { name, description, thumbnail, homepage, wiki },
     } = this.state;
+
     return (
       <div className="randomchar">
         <div className="randomchar__block">
